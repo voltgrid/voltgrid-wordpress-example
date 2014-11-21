@@ -1,0 +1,7 @@
+*.sql
+.DS_Store
+/license.txt
+/readme.html
+Thumbs.db
+wp-content/cache
+wp-content/uploads
