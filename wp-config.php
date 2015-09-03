@@ -18,12 +18,12 @@
 $db_name = (getenv('DB_NAME') ? getenv('DB_NAME') : 'wordpress');
 $db_table_prefix = (getenv('DB_TABLE_PREFIX') ? getenv('DB_TABLE_PREFIX') : 'wp_');
 $db_user = (getenv('DB_USER') ? getenv('DB_USER') : 'root');
-$db_password = (getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : '');
+$db_password = (getenv('DB_PASS') ? getenv('DB_PASS') : '');
 $db_host = (getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost');
 $debug = (getenv('DEBUG') ? filter_var(getenv('DEBUG'), FILTER_VALIDATE_BOOLEAN) : false);
 
 // Salt values
-$AUTH_KEY 		  = (getenv('AUTH_KEY') ? getenv('AUTH_KEY') : '');
+$AUTH_KEY         = (getenv('AUTH_KEY') ? getenv('AUTH_KEY') : '');
 $SECURE_AUTH_KEY  = (getenv('SECURE_AUTH_KEY') ? getenv('SECURE_AUTH_KEY') : '');
 $LOGGED_IN_KEY    = (getenv('LOGGED_IN_KEY') ? getenv('LOGGED_IN_KEY') : '');
 $NONCE_KEY        = (getenv('NONCE_KEY') ? getenv('NONCE_KEY') : '');
