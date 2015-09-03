@@ -1,0 +1,35 @@
+
+# MySQL Database
+mysql:
+  image: mariadb:10
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+
+# Init: Create / update .env file
+# NB, there is a race condition, the web loads the .env file before it is updated
+# so we need to fallback to links and use a container that imports the .env file
+# after sleeping for a few seconds.
+init:
+  image: quay.io/panubo/wordpress-init
+  environment:
+    - APP_CODE=example
+  volumes:
+    - .:/output
+  command: /output/.env --sleep
+  links:
+    - mysql
+
+# Apache Web server (starts last)
+web:
+  image: quay.io/panubo/php-apache-c7-develop
+  env_file: .env
+  environment:
+    - DEBUG=true
+  ports:
+  - "8000:8000"
+  volumes:
+    - .env:/.env
+    - .:/var/www/html
+  links:
+    - mysql
+    - init
