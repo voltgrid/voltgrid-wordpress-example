@@ -29,3 +29,14 @@ Configuration is done by passing environment variables to the running PHP applic
 ### Other
 
 - `DEBUG` - Enable debugging mode
+
+## Docker Compose
+
+To get started with Docker Compose / Docker Machine:
+
+```
+git clone https://github.com/voltgrid/voltgrid-wordpress-example.git
+docker-compose up
+```
+
+Then open your web browser and point it at the ip shown by `docker-machine ip` command.
